@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     
      # Registra o aplicativo Core no projeto.
     'core.apps.CoreConfig',
+    # Registra o aplicativo Categories no projeto.
+    'categories.apps.CategoriesConfig',
 ]
 
 MIDDLEWARE = [
