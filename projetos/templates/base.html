@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Importa o arquivo CSS utilizando a estrutura de arquivos estáticos do Django. -->
+    <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
+
+    <!-- Define o título da página. Cada template filho poderá sobrescrevê-lo. -->
+    <title>{% block title %}Nome do meu App{% endblock title %}</title>
+</head>
+
+<body>
+
+    <!-- Área destinada ao conteúdo específico de cada página. -->
+    {% block body %}
+    
+    {% endblock body %}
+    
+    <!-- Importa o arquivo JavaScript utilizando a estrutura de arquivos estáticos do Django. -->
+    <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
+</body>
+</html>

@@ -9,3 +9,7 @@
 db.sqlite3
 __pycache__/
 */__pycache__/
+
+# Arquivos temporários e migrações do aplicativo Core
+/apps/core/__pycache__/*
+/apps/core/migrations/*
