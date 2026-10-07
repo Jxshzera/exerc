@@ -3,3 +3,9 @@
 /apps/categories/migrations/*
 /apps/products/__pycache__/*
 /apps/products/migrations/*
+
+# Arquivos e pastas locais que não devem ser enviados ao Git
+.env
+db.sqlite3
+__pycache__/
+*/__pycache__/

@@ -20,7 +20,12 @@ from decouple import config
 # Define o caminho absoluto da raiz do projeto.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Define o caminho da pasta onde ficarão os aplicativos (apps) do projeto.
+APPS_DIR = os.path.join(BASE_DIR, 'apps')
 
+# Adiciona a pasta "apps" ao caminho de busca de módulos do Python,
+# permitindo importar os aplicativos criados dentro dessa pasta.
+sys.path.insert(0, APPS_DIR)
 
 # Carrega a chave secreta a partir do arquivo .env,
 # mantendo informações sensíveis fora do código principal.
@@ -59,7 +64,12 @@ ROOT_URLCONF = 'exercapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+
+        # Define a pasta global onde ficarão os templates HTML do projeto.
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +80,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'exercapp.wsgi.application'
 
 
@@ -122,14 +131,25 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.1/howto/static-files/
 
+# Define a URL utilizada para acessar os arquivos estáticos.
 STATIC_URL = 'static/'
 
+# Define a pasta onde os arquivos estáticos do projeto serão centralizados.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Email
-# https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
+# Define as pastas utilizadas pelo Django para localizar os arquivos estáticos
+# durante o desenvolvimento do projeto.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles'),
+]
+
+# Define a URL utilizada para acessar os arquivos enviados pelo sistema.
+MEDIA_URL = '/media/'
+
+# Define a pasta onde serão armazenados os arquivos enviados por upload.
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 MAILERS = {
     'default': {
