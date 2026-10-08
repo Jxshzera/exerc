@@ -6,22 +6,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Importa o arquivo CSS utilizando a estrutura de arquivos estáticos do Django. -->
     <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
-
-    <!-- Define o título da página. Cada template filho poderá sobrescrevê-lo. -->
     <title>{% block title %}Nome do meu App{% endblock title %}</title>
 </head>
-
 <body>
 
-    <!-- Área destinada ao conteúdo específico de cada página. -->
+    <!--
+    # 6.2 - Imagem do menu
+    # A imagem foi colocada antes dos links do menu.
+    # O {% static %} permite que o Django localize o arquivo
+    # dentro da estrutura de arquivos estaticos do projeto.
+    # width e height definem respectivamente a largura e a altura da imagem.
+    -->
+
+    <!--
+    # A imagem agora esta dentro de um link <a>.
+    # Quando o usuario clicar na imagem, sera direcionado para
+    # a pagina inicial do app, definida pela URL core:home.
+    # Isso transforma a imagem em um botao visual para voltar ao inicio.
+    -->
+    <a href="{% url 'core:home' %}">
+        <img src="{% static 'img/menu.png' %}" width="200" height="60" />
+    </a>
+    <br />
+
+    <!--
+    # 6.2 - Integracao com JavaScript
+    # O atributo onclick executa uma funcao JavaScript quando
+    # o usuario clicar no botao.
+    # Categorias chama mudarCor().
+    # Os demais botoes chamam alertarMensagem(), pois ainda
+    # nao possuem paginas funcionais.
+    -->
+    <a href="{% url 'categories:list_categories' %}" ><button onclick="mudarCor()">Categorias</button></a>
+    <a href="#" ><button onclick="alertarMensagem()">Produtos</button></a>
+    <a href="#" ><button onclick="alertarMensagem()">Clientes</button></a>
+    <a href="#" ><button onclick="alertarMensagem()">Pedidos</button></a>
+    <br />
+
     {% block body %}
     
     {% endblock body %}
     
-    <!-- Importa o arquivo JavaScript utilizando a estrutura de arquivos estáticos do Django. -->
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
 </body>
 </html>

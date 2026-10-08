@@ -1,0 +1,30 @@
+/* 
+# 6.2 - Estilos da aplicacao
+# Este arquivo define a aparencia visual das paginas.
+# O body representa o corpo inteiro da pagina.
+*/
+body {
+  background-color: rgb(190, 198, 202);
+}
+
+/*
+# Estilo dos botoes do menu.
+# background-color define a cor de fundo.
+# color define a cor do texto.
+# width define a largura.
+# height define a altura.
+*/
+button {
+  background-color: #157caf;
+  color: rgb(255, 255, 255);
+  width: 100px;
+  height: 40px;
+}
+
+/*
+# :hover aplica este estilo quando o mouse
+# estiver passando por cima do botao.
+*/
+button:hover {
+  background-color: rgb(0, 0, 0);
+}

@@ -1,4 +1,3 @@
-```python id="u9r6k3"
 from django.urls import path
 
 from . import views
@@ -19,4 +18,7 @@ urlpatterns = [
     # O <int:id_category> recebe o ID da categoria pela URL.
     path('editar/<int:id_category>/', views.edit_category, name='edit_category'),
 
-   
+    # Direciona a URL de exclusão para a view delete_category.
+    # O <int:id_category> recebe o ID da categoria pela URL.
+    path('excluir/<int:id_category>/', views.delete_category, name='delete_category'),
+]

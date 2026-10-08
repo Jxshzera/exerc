@@ -33,7 +33,11 @@ urlpatterns = [
 
     # Encaminha a URL raiz do projeto para as URLs do aplicativo Core.
     path('', include('core.urls', namespace='core')),
+
+    # Encaminha as URLs de categorias para o aplicativo Categories.
+    path('categorias/', include('categories.urls', namespace='categories')),
 ]
+
 
 # Configura o acesso aos arquivos enviados por upload durante o desenvolvimento.
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

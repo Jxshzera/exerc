@@ -1,4 +1,4 @@
-```python
+
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import CategoryForm
@@ -104,4 +104,3 @@ def delete_category(request, id_category):
 
     # Após excluir, redireciona para a lista de categorias.
     return redirect('categories:list_categories')
-```
