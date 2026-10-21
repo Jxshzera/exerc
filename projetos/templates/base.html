@@ -12,9 +12,7 @@
 <body>
 
     <!--
-    # 6.2 - Imagem do menu
-    # A imagem foi colocada antes dos links do menu.
-    # O {% static %} permite que o Django localize o arquivo
+    # A tag Django static permite localizar arquivos
     # dentro da estrutura de arquivos estaticos do projeto.
     # width e height definem respectivamente a largura e a altura da imagem.
     -->
@@ -31,15 +29,16 @@
     <br />
 
     <!--
-    # 6.2 - Integracao com JavaScript
-    # O atributo onclick executa uma funcao JavaScript quando
-    # o usuario clicar no botao.
+    # 6.2 - Integração com JavaScript
+    # O atributo onclick executa uma função JavaScript quando
+    # o usuário clicar no botão.
     # Categorias chama mudarCor().
-    # Os demais botoes chamam alertarMensagem(), pois ainda
-    # nao possuem paginas funcionais.
+    # Produtos possui uma página funcional e utiliza sua URL.
+    # Clientes e Pedidos ainda não possuem páginas funcionais,
+    # por isso continuam utilizando href="#" e alertarMensagem().
     -->
     <a href="{% url 'categories:list_categories' %}" ><button onclick="mudarCor()">Categorias</button></a>
-    <a href="#" ><button onclick="alertarMensagem()">Produtos</button></a>
+    <a href="{% url 'products:list_products' %}" ><button onclick="alertarMensagem()">Produtos</button></a>
     <a href="#" ><button onclick="alertarMensagem()">Clientes</button></a>
     <a href="#" ><button onclick="alertarMensagem()">Pedidos</button></a>
     <br />

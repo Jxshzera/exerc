@@ -41,17 +41,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Aplicativos padrão do Django.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-     # Registra o aplicativo Core no projeto.
+
+    # Aplicativos do projeto.
     'core.apps.CoreConfig',
+
     # Registra o aplicativo Categories no projeto.
     'categories.apps.CategoriesConfig',
+
+    # Registra o aplicativo Products no projeto Django.
+    # ProductsConfig permite utilizar as configurações definidas em apps.py.
+    'products.apps.ProductsConfig',
 ]
 
 MIDDLEWARE = [

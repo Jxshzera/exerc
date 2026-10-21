@@ -1,0 +1,90 @@
+```html
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Adicionar Produto - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<!--
+# Roteiro 7 - Cadastro de Produto
+# Este template exibe o formulario usado para cadastrar um novo produto.
+# O formulario utiliza os campos definidos no ProductForm.
+-->
+
+<br />
+<b>Cadastro de Produto</b>
+<br />
+<br />
+
+<!--
+# method="POST" envia os dados do formulario para o servidor.
+# enctype="multipart/form-data" e necessario porque o produto possui
+# campos de upload de imagem e documento.
+-->
+<form action="" method="POST" enctype="multipart/form-data">
+
+    <!--
+    # Protege o formulario contra ataques CSRF.
+    # O Django verifica este token quando recebe uma requisicao POST.
+    -->
+    {% csrf_token %}
+    {{ form.errors }}
+
+    <label>Nome</label>
+    <br />
+    {{ form.name }}
+    <br />
+    <br />
+
+    <label>Descricao</label>
+    <br />
+    {{ form.description }}
+    <br />
+    <br />
+
+    <label>Data de fabricacao</label>
+    <br />
+    {{ form.fabrication_date }}
+    <br />
+    <br />
+
+    <label>Ativar</label>
+    <br />
+    {{ form.is_active }}
+    <br />
+    <br />
+
+    <label>Preço</label>
+    <br />
+    {{ form.price }}
+    <br />
+    <br />
+
+    <label>Foto</label>
+    <br />
+    {{ form.photo }}
+    <br />
+    <br />
+
+    <label>Documentos</label>
+    <br />
+    {{ form.doc }}
+    <br />
+    <br />
+
+    <label>Categoria</label>
+    <br />
+    {{ form.category }}
+    <br />
+    <br />
+
+    <button type="submit">Salvar</button>
+
+</form>
+
+{% endblock body %}
+```

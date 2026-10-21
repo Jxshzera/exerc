@@ -1,8 +1,8 @@
 /modeloapp/__pycache__/*
 /apps/categories/__pycache__/*
-/apps/categories/migrations/*
+
 /apps/products/__pycache__/*
-/apps/products/migrations/*
+
 
 # Arquivos e pastas locais que não devem ser enviados ao Git
 .env
@@ -12,4 +12,5 @@ __pycache__/
 
 # Arquivos temporários e migrações do aplicativo Core
 /apps/core/__pycache__/*
-/apps/core/migrations/*
+# Arquivos enviados durante os testes de upload
+/media/

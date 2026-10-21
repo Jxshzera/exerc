@@ -36,6 +36,8 @@ urlpatterns = [
 
     # Encaminha as URLs de categorias para o aplicativo Categories.
     path('categorias/', include('categories.urls', namespace='categories')),
+
+    path('produtos/', include('products.urls', namespace='products')),
 ]
 
 
