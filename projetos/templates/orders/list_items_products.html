@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Produtos para compra{% endblock %}
+
+{% block content %}
+<!-- Lista os produtos disponíveis para adicionar ao carrinho. -->
+<h1>Produtos para compra</h1>
+
+<p>
+    <a href="{% url 'orders:cart' %}">Ver carrinho</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>R$ {{ product.price }}</td>
+            <td>{{ product.category }}</td>
+            <td>
+                <a href="{% url 'orders:add_cart' product.id %}">
+                    Adicionar ao carrinho
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">Nenhum produto ativo encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

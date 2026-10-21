@@ -1,3 +1,4 @@
+
 """
 Django settings for exercapp project.
 
@@ -9,12 +10,12 @@ https://docs.djangoproject.com/en/6.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
+
 import os
 import sys
 
 from pathlib import Path
 from decouple import config
-
 
 
 # Define o caminho absoluto da raiz do projeto.
@@ -58,14 +59,28 @@ INSTALLED_APPS = [
     # Registra o aplicativo Products no projeto Django.
     # ProductsConfig permite utilizar as configurações definidas em apps.py.
     'products.apps.ProductsConfig',
+
     # Registra o aplicativo Socialnetworks no projeto Django.
     # SocialnetworksConfig permite utilizar as configurações definidas em apps.py.
     'socialnetworks.apps.SocialnetworksConfig',
 
+    # Registra o aplicativo Persons no projeto Django.
     'persons.apps.PersonsConfig',
 
+    # Registra o aplicativo Employees no projeto Django.
     'employees.apps.EmployeesConfig',
+
+    # Registra o aplicativo Clients no projeto Django.
+    # ClientsConfig define as configurações e o nome de exibição do aplicativo.
+    'clients.apps.ClientsConfig',
+
+    # Registra o aplicativo Orders no projeto Django.
+    'orders.apps.OrdersConfig',
+
+    # Registra o aplicativo Orderitems no projeto Django.
+    'orderitems.apps.OrderitemsConfig',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -98,6 +113,7 @@ TEMPLATES = [
         },
     },
 ]
+
 WSGI_APPLICATION = 'exercapp.wsgi.application'
 
 
@@ -147,7 +163,6 @@ TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_TZ = True
-
 
 
 # Define a URL utilizada para acessar os arquivos estáticos.

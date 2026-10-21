@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -28,28 +29,62 @@
     </a>
     <br />
 
- <!--
-# 6.2 - Integracao com JavaScript
-# O atributo onclick executa uma funcao JavaScript quando
-# o usuario clicar no botao.
-# Categorias chama mudarCor().
-# Produtos agora possui uma pagina funcional e utiliza sua URL.
-# Clientes e Pedidos ainda nao possuem paginas funcionais,
-# por isso continuam utilizando href="#" e alertarMensagem().
--->
-    <a href="{% url 'categories:list_categories' %}" ><button onclick="mudarCor()">Categorias</button></a>
-    <a href="{% url 'products:list_products' %}" ><button onclick="alertarMensagem()">Produtos</button></a>
-    <a href="#" ><button onclick="alertarMensagem()">Clientes</button></a>
-    <a href="#" ><button onclick="alertarMensagem()">Pedidos</button></a>
-    <a href="{% url 'socialnetworks:list_socialnetworks' %}"><button>Redes Sociais</button></a>
-    <a href="{% url 'employees:list_employees' %}"><button>Funcionários</button></a>
+    <!--
+    # 6.2 - Integracao com JavaScript
+    # O atributo onclick executa uma funcao JavaScript quando
+    # o usuario clicar no botao.
+    # Categorias chama mudarCor().
+    # Produtos utiliza sua URL funcional.
+    # Clientes abre a listagem de clientes.
+    # Pedidos abre a listagem de pedidos cadastrados.
+    # Compras abre a lista de produtos disponiveis para compra.
+    -->
+    <a href="{% url 'categories:list_categories' %}">
+        <button onclick="mudarCor()">Categorias</button>
+    </a>
+
+    <a href="{% url 'products:list_products' %}">
+        <button onclick="alertarMensagem()">Produtos</button>
+    </a>
+
+    <a href="{% url 'clients:list_clients' %}">
+        <button>Clientes</button>
+    </a>
+
+    <a href="{% url 'orders:list_orders' %}">
+        <button>Pedidos</button>
+    </a>
+
+    <a href="{% url 'socialnetworks:list_socialnetworks' %}">
+        <button>Redes Sociais</button>
+    </a>
+
+    <a href="{% url 'employees:list_employees' %}">
+        <button>Funcionários</button>
+    </a>
+
+    <a href="{% url 'orders:list_items_products' %}">
+        <button>Compras</button>
+    </a>
 
     <br />
 
+    <!-- Formulario para buscar clientes pelo sobrenome. -->
+    <form action="{% url 'clients:search_clients' %}" method="GET">
+        <input name="query" type="text" placeholder="Sobrenome do cliente" aria-label="Buscar">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <!--
+    # Bloco responsavel por exibir o conteudo especifico
+    # de cada pagina que utiliza este template base.
+    # Os templates antigos utilizam body e os novos utilizam content.
+    -->
     {% block body %}
-    
+        {% block content %}
+        {% endblock content %}
     {% endblock body %}
-    
+
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
 </body>
 </html>

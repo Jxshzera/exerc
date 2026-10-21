@@ -1,3 +1,4 @@
+
 """
 URL configuration for exercapp project.
 
@@ -37,12 +38,20 @@ urlpatterns = [
     # Encaminha as URLs de categorias para o aplicativo Categories.
     path('categorias/', include('categories.urls', namespace='categories')),
 
+    # Encaminha as URLs de produtos para o aplicativo Products.
     path('produtos/', include('products.urls', namespace='products')),
 
+    # Encaminha as URLs de redes sociais para o aplicativo Socialnetworks.
     path('redessociais/', include('socialnetworks.urls', namespace='socialnetworks')),
 
     # Rotas do aplicativo de funcionários.
     path('funcionarios/', include('employees.urls', namespace='employees')),
+
+    # Encaminha as URLs de clientes para o aplicativo Clients.
+    path('clientes/', include('clients.urls', namespace='clients')),
+
+    # Encaminha as URLs de pedidos para o aplicativo Orders.
+    path('pedidos/', include('orders.urls', namespace='orders')),
 ]
 
 

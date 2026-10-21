@@ -1,0 +1,64 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Clientes - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+<h3>Lista de Clientes</h3>
+
+<p>
+    <a href="{% url 'clients:add_client' %}">Cadastrar novo cliente</a>
+</p>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Gênero</th>
+            <th>Redes sociais</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.first_name }}</td>
+            <td>{{ client.last_name }}</td>
+            <td>{{ client.address }}</td>
+            <td>{{ client.phone }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.get_gender_display }}</td>
+            <td>
+                <ul>
+                    {% for socialnetwork in client.socialnetwork.all %}
+                    <li>{{ socialnetwork.name }}</li>
+                    {% empty %}
+                    <li>Sem redes sociais</li>
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <a href="{% url 'clients:edit_client' client.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'clients:delete_client' client.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="10">Nenhum cliente cadastrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}

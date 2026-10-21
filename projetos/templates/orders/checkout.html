@@ -1,0 +1,61 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Finalizar compra{% endblock %}
+
+{% block content %}
+<!-- Formulário para selecionar os responsáveis pelo pedido. -->
+<h1>Finalizar compra</h1>
+
+{% if cart %}
+<form method="POST">
+    {% csrf_token %}
+
+    <p>
+        <label for="client_id">Cliente:</label>
+        <select name="client_id" id="client_id" required>
+            <option value="">Selecione um cliente</option>
+            {% for client in clients %}
+            <option value="{{ client.id }}">{{ client }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        <label for="employee_id">Funcionário:</label>
+        <select name="employee_id" id="employee_id" required>
+            <option value="">Selecione um funcionário</option>
+            {% for employee in employees %}
+            <option value="{{ employee.id }}">{{ employee }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <p>
+        <label for="payment_method">Forma de pagamento:</label>
+        <select name="payment_method" id="payment_method" required>
+            {% for value, label in payment_methods %}
+            <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+    </p>
+
+    <h2>Resumo da compra</h2>
+    <ul>
+        {% for product_id, item in cart.items %}
+        <li>
+            {{ item.name }} — {{ item.quantity }} unidade(s)
+            — Subtotal: R$ {{ item.subtotal }}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Total: R$ {{ total }}</h3>
+
+    <button type="submit">Confirmar pedido</button>
+</form>
+{% else %}
+<p>Seu carrinho está vazio.</p>
+<p><a href="{% url 'orders:list_items_products' %}">Ver produtos</a></p>
+{% endif %}
+{% endblock %}
