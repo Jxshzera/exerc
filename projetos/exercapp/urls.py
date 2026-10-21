@@ -38,6 +38,11 @@ urlpatterns = [
     path('categorias/', include('categories.urls', namespace='categories')),
 
     path('produtos/', include('products.urls', namespace='products')),
+
+    path('redessociais/', include('socialnetworks.urls', namespace='socialnetworks')),
+
+    # Rotas do aplicativo de funcionários.
+    path('funcionarios/', include('employees.urls', namespace='employees')),
 ]
 
 

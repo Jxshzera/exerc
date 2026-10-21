@@ -58,6 +58,13 @@ INSTALLED_APPS = [
     # Registra o aplicativo Products no projeto Django.
     # ProductsConfig permite utilizar as configurações definidas em apps.py.
     'products.apps.ProductsConfig',
+    # Registra o aplicativo Socialnetworks no projeto Django.
+    # SocialnetworksConfig permite utilizar as configurações definidas em apps.py.
+    'socialnetworks.apps.SocialnetworksConfig',
+
+    'persons.apps.PersonsConfig',
+
+    'employees.apps.EmployeesConfig',
 ]
 
 MIDDLEWARE = [

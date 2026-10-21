@@ -28,19 +28,22 @@
     </a>
     <br />
 
-    <!--
-    # 6.2 - Integração com JavaScript
-    # O atributo onclick executa uma função JavaScript quando
-    # o usuário clicar no botão.
-    # Categorias chama mudarCor().
-    # Produtos possui uma página funcional e utiliza sua URL.
-    # Clientes e Pedidos ainda não possuem páginas funcionais,
-    # por isso continuam utilizando href="#" e alertarMensagem().
-    -->
+ <!--
+# 6.2 - Integracao com JavaScript
+# O atributo onclick executa uma funcao JavaScript quando
+# o usuario clicar no botao.
+# Categorias chama mudarCor().
+# Produtos agora possui uma pagina funcional e utiliza sua URL.
+# Clientes e Pedidos ainda nao possuem paginas funcionais,
+# por isso continuam utilizando href="#" e alertarMensagem().
+-->
     <a href="{% url 'categories:list_categories' %}" ><button onclick="mudarCor()">Categorias</button></a>
     <a href="{% url 'products:list_products' %}" ><button onclick="alertarMensagem()">Produtos</button></a>
     <a href="#" ><button onclick="alertarMensagem()">Clientes</button></a>
     <a href="#" ><button onclick="alertarMensagem()">Pedidos</button></a>
+    <a href="{% url 'socialnetworks:list_socialnetworks' %}"><button>Redes Sociais</button></a>
+    <a href="{% url 'employees:list_employees' %}"><button>Funcionários</button></a>
+
     <br />
 
     {% block body %}
